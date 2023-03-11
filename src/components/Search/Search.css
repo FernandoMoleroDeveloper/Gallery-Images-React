@@ -1,0 +1,20 @@
+.header{
+    display:flex;
+    justify-content: space-between;
+    background-color: rgb(207, 203, 203);
+    padding: 10px;
+}
+
+.header__input{
+    margin-right: 5px;
+    width: 300px;
+    height: 30px;
+    border: none;
+}
+
+.header__btn-theme{
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 5px;
+}
