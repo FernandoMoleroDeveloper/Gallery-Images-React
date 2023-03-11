@@ -1,10 +1,13 @@
 import React from "react";
 import Search from "../Search/Search";
 import "./Image.css";
+import { ThemeContext } from "../../App"
 
 const Image = () => {
   const [getImages, setGetImages] = React.useState([]);
   const [favouriteList, setFavouriteList] = React.useState([]);
+
+  const {themeState} = React.useContext(ThemeContext);
 
   const searchImage = (text) => {
     const options = {
@@ -30,28 +33,35 @@ const Image = () => {
   console.log(favouriteList);
 
   return (
-    <div className="img">
+    <div className="img" style={{ background: themeState.background,}}>
       <Search searchImage={searchImage}></Search>
 
       <h3>Resultados de busqueda:</h3>
       <div className="img__container">
         {getImages.map((img) => (
-          <img
+        <div className="img__context">
+        <img
             className="img__box"
             key={img.id}
             alt="busqueda"
             src={img.src.small}
             onClick={() => {
-              selectedImage(img.src.small);
+            selectedImage(img);
             }}
-          ></img>
+        ></img>
+        <p className="img__text">{img.alt}</p>
+        </div>
         ))}
+        
       </div>
 
       <h3>Guardar en Favoritos</h3>
       <div className="img__container">
         {favouriteList.map((img) => (
-          <img className="img__box" key={img.id} alt="busqueda" src={img}></img>
+            <div className="img__context">
+            <img className="img__box" key={img.id} alt="busqueda" src={img.src.small}></img>
+            <p className="img__text">{img.alt}</p>
+            </div>
         ))}
       </div>
     </div>

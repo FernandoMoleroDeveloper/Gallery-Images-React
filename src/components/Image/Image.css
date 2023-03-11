@@ -1,5 +1,6 @@
 .img{
     width: 100vw;
+    height: 100%;
 }
 
 .img__box{
@@ -16,4 +17,13 @@
     flex-wrap: wrap;
     width: 100%;
     margin-left: 10px;
+}
+
+.img__text{
+    margin-top:0;
+    text-align: center;
+}
+
+.img__context{
+    width: 160px;
 }
